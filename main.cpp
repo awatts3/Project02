@@ -107,6 +107,8 @@ void Insert(vector<struct bst> &v1, string aData)
 }
 
 
+
+
 void print(vector<struct bst>&v1) {
 
 	cout << endl<<endl;
@@ -155,6 +157,7 @@ int main()
     vector <struct bst> v1;
 	string input;
 	string command;
+	int in;
 	cout << "Enter first event string: ";
 	getline(cin, input);
 	MakeNode(v1, input);
@@ -171,26 +174,10 @@ int main()
 		else if (command == "display") {
 			print(v1);
 		}
-		else if (command == "update") {
-			cout << "Enter index of node to be updated:";
-			int i, pi;
-			cin >> i;
-			if (i >= v1.size() | i < 0) { cout<<"Input is out of range"<<endl; }
-			else {
-				cout << "Enter new event string: ";
-				getline(cin, input);
-				v1[i].rawEvent = input;
-				makeID(v1, i);
-				if (i == 1 | i == 2) { pi = 0; }
-				else if (i % 2 == 0) { pi = (i - 2) / 2; }
-				else { pi = (i - 1) / 2; }
-				updateParent(v1, i, pi);
-			}
 
-		}
 		else {
 		
-			cout << "Know commands are: insert, display, update, quit" << endl;
+			cout << "Know commands are: insert, display, quit" << endl;
 
 		}
 
